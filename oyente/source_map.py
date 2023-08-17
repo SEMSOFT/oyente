@@ -2,6 +2,7 @@ import re
 import six
 import ast
 import json
+import os
 
 import global_params
 
@@ -38,7 +39,7 @@ class SourceMap:
         if not SourceMap.parent_filename:
             SourceMap.remap = remap
             SourceMap.allow_paths = allow_paths
-            SourceMap.parent_filename = parent_filename
+            SourceMap.parent_filename = os.path.abspath(parent_filename)
             if input_type == "solidity":
                 SourceMap.position_groups = SourceMap._load_position_groups()
             elif input_type == "standard json":
