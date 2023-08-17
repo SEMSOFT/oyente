@@ -52,6 +52,8 @@ COPY --from=geth /usr/local/bin/evm /usr/local/bin/evm
 # Install solc from official solc image
 COPY --from=solc /usr/bin/solc /usr/bin/solc
 
+RUN pip install crytic_compile==0.1.13
+
 COPY . /oyente/
 
 WORKDIR /oyente/
