@@ -57,4 +57,4 @@ RUN pip install crytic_compile==0.1.13
 COPY . /oyente/
 
 WORKDIR /oyente/
-ENTRYPOINT ["python3", "/oyente/oyente/oyente.py"]
+# ENTRYPOINT ["python3", "/oyente/oyente/oyente.py"]
