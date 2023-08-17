@@ -58,18 +58,3 @@ COPY . /oyente/
 
 WORKDIR /oyente/
 ENTRYPOINT ["python3", "/oyente/oyente/oyente.py"]
-
-FROM cli as WEB
-
-RUN wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
-RUN tar -xzvf ruby-install-0.6.1.tar.gz
-RUN cd ruby-install-0.6.1/ && make install
-RUN ruby-install --system ruby 2.4.4
-WORKDIR /oyente/web
-
-RUN yarn install
-RUN gem install bundler -v 2.1.2
-RUN bundle install --with development
-
-EXPOSE 3000
-CMD ["./bin/rails", "server"]
