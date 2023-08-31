@@ -4,7 +4,7 @@ ARG SOLC_VERSION=0.4.19
 FROM ethereum/client-go:${ETHEREUM_VERSION} as geth
 FROM ethereum/solc:${SOLC_VERSION} as solc
 
-FROM ubuntu:bionic as cli
+FROM ubuntu:bionic as CLI
 
 ARG NODEREPO=node_8.x
 
